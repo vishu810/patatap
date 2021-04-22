@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>circle</title>
+	<script type="text/javascript" src="paper-full.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.js"></script>
+	<link rel="stylesheet" type="text/css" href="circles.css ">
+	
+	<script type="text/paperscript" canvas="myCanvas">
+	
+  
+
+var s = [1,2,3,4,5,6,7,8,9];
+
+s[0] = new Howl({
+  src: ['sounds/bubbles.mp3']
+});
+s[1] = new Howl({
+  src: ['sounds/clay.mp3']
+});
+s[2] = new Howl({
+  src: ['sounds/corona.mp3']
+});
+s[3] = new Howl({
+  src: ['sounds/confetti.mp3']
+});
+s[4] = new Howl({
+  src: ['sounds/dotted-spiral.mp3']
+});
+s[5] = new Howl({
+  src: ['sounds/flash-1.mp3']
+});
+s[6] = new Howl({
+  src: ['sounds/flash-2.mp3']
+});
+s[7] = new Howl({
+  src: ['sounds/flash-3.mp3']
+});
+s[8] = new Howl({
+  src: ['sounds/glimmer.mp3']
+});
+
+
+var clr =[];
+
+
+function onKeyDown(event) {
+if(event.key === "1"){
+s[0].play();
+}
+if(event.key === "2"){
+s[1].play();
+}
+if(event.key === "3"){
+s[2].play();
+}
+
+if(event.key === "4"){
+s[3].play();
+}
+if(event.key === "5"){
+s[4].play();
+}
+if(event.key === "6"){
+s[5].play();
+}
+if(event.key === "7"){
+s[6].play();
+}
+if(event.key === "8"){
+s[7].play();
+}
+if(event.key === "9"){
+s[8].play();
+}
+
+var maxPoint =new Point(view.size.width, view.size.height);
+
+var randomPoint = Point.random();
+
+var point= maxPoint*randomPoint;
+
+var newclr = new Path.Circle(point,500);		
+
+newclr.fillColor="yellow";
+	clr.push(newclr);
+}
+    function onFrame(event){
+    for(var i=0;i<clr.length;i++){
+    clr[i].fillColor.hue +=2;
+    clr[i].scale(.9);
+}
+
+}
+</script>
+</head>
+<body>
+
+	<h1>vishvajeet</h1>
+<canvas id="myCanvas" resize></canvas> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
